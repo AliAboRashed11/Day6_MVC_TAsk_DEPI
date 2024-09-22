@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Day2.viewsModel
+@model List<DepartmentVm>
+
+<form method="post"  asp-action="create" asp-controller="GetData">
+    <div>
+        <label>Name</label>
+        <input type="Text" name="Name" class="form-control" />
+    </div>
+    <div>
+        <label>Age</label>
+        <input type="number" name="Age" class="form-control" />
+    </div>
+    <div>
+        <label>Adderss</label>
+        <input type="Text" name="Address" class="form-control" />
+    </div>
+      <div>
+        <label>CourseID</label>
+        <input type="Text" name="CourseID" class="form-control" />
+    </div>
+      
+    <div>
+        <label>Img</label>
+        <input type="file" name="Imageurl" class="form-control" />
+    </div>
+
+    <div>
+        <label>DepartmentId</label>
+        
+        <select name="DepartmentID" class="form-control">
+            @foreach (DepartmentVm itme in Model)
+            {
+                <option value="@itme.id">@itme.name</option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-primary" />
+</form>
+
+<a asp-action="GetallInstructor" asp-controller="GetData" class="btn btn-dark">Bake to list</a>

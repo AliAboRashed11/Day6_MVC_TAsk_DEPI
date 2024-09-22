@@ -1,0 +1,34 @@
+﻿@model List<Instructor>
+
+<a asp-action="create" asp-controller="GetData" class="btn btn-dark">Create</a>
+<h1 class="center"> @ViewData["Name"]</h1>
+ <table class="table table-bordered table-hover">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Course</th>
+		<th>Department </th>
+		<th>Address </th>
+		<th>Edit Button</th>
+		<th>Delete Button</th>
+
+	</tr>
+	@foreach (var Instructor in Model)
+			{
+
+				
+				<tr>
+
+			<td> @Instructor.Id </td>
+			<td>@Instructor.Name</td>
+			<td>@Instructor.Course.Name</td>
+			<td>@Instructor.Department.name</td>
+			<td>@Instructor.Address</td>
+			<td><a href="/GetData/Edit/@Instructor.Id" class="btn btn-danger">Edit</a></td>
+			<td><a href="/GetData/Delete/@Instructor.Id" class="btn btn btn-outline-danger">Delete</a></td>
+
+				</tr>
+	}
+
+
+	</table>

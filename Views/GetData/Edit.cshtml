@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Day2.viewsModel
+@model InstractorDeplistVM
+
+@{
+    SelectList listItems = new SelectList(Model.DepartmentVm,"id","name");
+}
+<form method="post"  asp-action="Edit" asp-controller="GetData" asp-route-id="@Model.Id" >
+    <div>
+        <label>Name</label>
+        <input asp-for = "Name" class="form-control " />
+    </div>
+  
+    <div>
+        <label>Adderss</label>
+        <input asp-for="Address" class="form-control " />
+    </div>
+    <div>
+        <label>CourseID</label>
+        <input asp-for="CourseID" class="form-control "  />
+    </div>
+
+    <div>
+
+        <div>
+            <label>Img</label>
+            <input asp-for="Imageurl" type="file" class="form-control"  />
+        </div>
+    <div>
+        <label>DepartmentId</label>
+
+            <select asp-for="DepartmentID" asp-items="listItems" class="form-control">
+          
+        </select>
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-primary" />
+</form>
+
+<a asp-action="GetallInstructor" asp-controller= "GetData" class="btn btn-dark">Bake to list</a>
